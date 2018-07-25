@@ -1,5 +1,5 @@
-import { warn } from '../util/warn'
-import { extend } from '../util/misc'
+import { warn } from '../util/warn' // 警告
+import { extend } from '../util/misc' // 扩展
 
 export default {
   name: 'RouterView',
@@ -23,6 +23,7 @@ export default {
 
     // determine current view depth, also check to see if the tree
     // has been toggled inactive but kept-alive.
+    // 确定当前视图深度 检查试图是否活跃
     let depth = 0
     let inactive = false
     while (parent && parent._routerRoot !== parent) {
@@ -50,8 +51,9 @@ export default {
 
     const component = cache[name] = matched.components[name]
 
-    // attach instance registration hook
+    // attach instance registration hook 实力注册钩子
     // this will be called in the instance's injected lifecycle hooks
+    // 这将在实例的生命周期中调用
     data.registerRouteInstance = (vm, val) => {
       // val could be undefined for unregistration
       const current = matched.instances[name]
